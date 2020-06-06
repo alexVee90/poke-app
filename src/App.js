@@ -11,7 +11,7 @@ function App() {
   const [pokemons, setPokemons] = useState(null);
 
   useEffect(() => {
-   axios.get('https://pokeapi.co/api/v2/pokemon?limit=100&offset=100').then(response => setPokemons(response.data.results));
+   axios.get('https://pokeapi.co/api/v2/pokemon?limit=10').then(response => setPokemons(response.data.results));
   }, []);
 
   return (

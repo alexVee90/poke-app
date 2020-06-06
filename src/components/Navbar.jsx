@@ -12,6 +12,8 @@ const Navbar = (props) => {
 
   const classes = useStyles();
   const handleClick = () => props.history.push('/');
+
+  const showSearch = props.location.pathname === '/' ? true : false;
   
   return (
     <header className={classes.root}>
@@ -20,7 +22,7 @@ const Navbar = (props) => {
           <Typography className={classes.title} variant='h6' noWrap>
             <span className={classes.logo} onClick={handleClick}>PokeDex</span>
           </Typography>
-          <div className={classes.search}>
+          {showSearch && (<div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
@@ -32,7 +34,7 @@ const Navbar = (props) => {
               }}
               inputProps={{ 'aria-label': 'search' }}
             />
-          </div>
+          </div>)}    
         </Toolbar>
       </AppBar>
     </header>
