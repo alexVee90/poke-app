@@ -11,6 +11,7 @@ const useStyles = makeStyles(navbarStyles);
 const Navbar = (props) => {
 
   const classes = useStyles();
+  
   const handleClick = () => props.history.push('/');
 
   const showSearch = props.location.pathname === '/' ? true : false;
