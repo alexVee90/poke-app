@@ -3,9 +3,8 @@ import { Switch, Route } from 'react-router-dom';
 
 import Pokedex from './components/Pokedex';
 import PokeDetails from './components/PokeDetails';
+import Navbar from './components/Navbar';
 import axios from 'axios';
-
-
 
 function App() {
 
@@ -16,12 +15,13 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <>
+      <Navbar />
       <Switch>
         <Route exact path="/" render={routerParams => <Pokedex {...routerParams} pokemons={pokemons} /> } />
         <Route exact path="/:pokemonId" component={PokeDetails} />
       </Switch>
-    </div>
+    </>
   );
 }
 
