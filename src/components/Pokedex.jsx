@@ -1,9 +1,15 @@
 import React from 'react';
 
+import PokeCard from './PokeCard';
+
 const Pokedex = props => {
+  const { pokemons } = props;
+  console.log(pokemons);
   return (
     <div>
-      <h1>Pokedex</h1>
+      <PokeCard />
+      <PokeCard />
+      <PokeCard />
     </div>
   )
 }
