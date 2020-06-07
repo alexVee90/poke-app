@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import navbarStyles from '../styles/navbarStyles';
 import { makeStyles } from '@material-ui/core/styles';
@@ -15,6 +15,10 @@ const Navbar = (props) => {
   const handleClick = () => props.history.push('/');
 
   const showSearch = props.location.pathname === '/' ? true : false;
+
+  const handleSearch = (e) => {
+    props.search(e.target.value);
+  }
   
   return (
     <header className={classes.root}>
@@ -33,6 +37,7 @@ const Navbar = (props) => {
                 root: classes.inputRoot,
                 input: classes.inputInput,
               }}
+              onChange={handleSearch}
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>)}    
