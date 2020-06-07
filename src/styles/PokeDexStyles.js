@@ -5,7 +5,7 @@ export default theme => ({
       maxWidth: '960px'
     },
     margin: `auto`,
-    marginTop: theme.spacing(2)
+    marginTop: '5rem'
   },
   circle: {
     color: theme.palette.primary.main,

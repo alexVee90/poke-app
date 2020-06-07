@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Grid, CircularProgress, Card, CardActionArea, CardMedia, CardContent, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { withRouter } from 'react-router-dom'
 
 import axios from 'axios';
 
@@ -19,19 +20,19 @@ const PokeCard = (props) => {
 
   useEffect(() => {
     axios.get(url).then((res) => setPokemon(res.data));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
 
   return (
     <>
       {pokemon ? (
         <Grid item xs={12} sm={6} md={4}>
           <Card>
-            <CardActionArea>
+            <CardActionArea onClick={ () => props.history.push(`/${pokemon.id}`)    }>
               <CardMedia
                 component='img'
                 className={classes.media}
-                alt='Contemplative Reptile'
+                alt={name}
                 image={pokemon.sprites.front_default}
                 title={name}
               />
@@ -52,4 +53,4 @@ const PokeCard = (props) => {
   );
 };
 
-export default PokeCard;
+export default withRouter(PokeCard);

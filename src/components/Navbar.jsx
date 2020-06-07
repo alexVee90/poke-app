@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
 import navbarStyles from '../styles/navbarStyles';
 import { makeStyles } from '@material-ui/core/styles';
@@ -22,7 +22,7 @@ const Navbar = (props) => {
   
   return (
     <header className={classes.root}>
-      <AppBar position='static'>
+      <AppBar position='fixed'>
         <Toolbar>
           <Typography className={classes.title} variant='h6' noWrap>
             <span className={classes.logo} onClick={handleClick}>PokeDex</span>
